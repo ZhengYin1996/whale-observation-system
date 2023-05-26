@@ -1,0 +1,95 @@
+@import play.mvc.Http.Request
+@(whales: String, obsForm: Form[Observation], whaleForm: Form[Whale])(implicit request: Request, messages: play.api.i18n.Messages)
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/observation.css")">
+  <script>var whales = @Html(whales)</script>
+  <script type="text/javascript" src="@routes.Assets.versioned("javascripts/observation.js")" > </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>
+    Add Observation
+  </title>
+
+</head>
+<body>
+  <div class = "wrapper">
+    <div class = "title cell">
+      <h1>Add an Observation</h1>
+    </div>
+    <div class = "back cell">
+      <a href="@routes.ObservationController.index"><button class = "button" >Back to Home</button></a>
+    </div>
+
+    <div class = "addWhaleCell"></div>
+
+    <div class = "ok"></div>
+
+    <div class = "whaleCell cell">
+      <div class = "sectionTitle">
+        <h2>Add Whales for Observation</h2>
+      </div>
+      <div class = "sectionBody">
+        @helper.form(routes.ObservationController.addWhale(), Symbol("id") -> "whaleForm") {
+          @helper.CSRF.formField
+      
+          @helper.select(whaleForm("species"), options=Seq("ORCA"     -> "Orca", 
+                                                          "HUMPBACK" -> "Humpback",
+                                                          "PORPOISE" -> "Porpoise",
+                                                          "KILLER"   -> "Killer",
+                                                          "BLUE"     -> "Blue"))
+
+          @helper.select(whaleForm("gender"), options=Seq("MALE" -> "Male", 
+                                                          "FEMALE" -> "Female"))
+
+          @helper.inputText(whaleForm("weight"))
+          
+          <button class = "button" form="whaleForm" type="submit">Add Whale</button>
+
+        }
+      </div>
+    </div>
+
+    <div id = "obsCell" class = "cell">
+      <div class = "sectionTitle">
+        <h2>Submit Observation</h2>
+      </div>
+      <div class = "sectionBody">
+
+        @helper.form(routes.ObservationController.addObservation(), Symbol("id") -> "obsForm") {
+          @helper.CSRF.formField
+    
+          <div class = "whaleList">
+            <div class = "pane">
+              <table id="whaleTable">
+                <thead>
+                <tr>
+                  <th>species</th>
+                  <th>estimated weight</th>
+                  <th>gender</th>
+                </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+          <!--        @helper.inputText(obsForm("longitude"))-->
+
+          @helper.input(obsForm("longitude")) { (id, name, value, args) =>
+          <input type="number" step="any" name="@name" id="@id" @toHtmlArgs(args)>
+          }
+
+          @helper.input(obsForm("latitude")) { (id, name, value, args) =>
+          <input type="number" step="any" name="@name" id="@id" @toHtmlArgs(args)>
+          }
+
+          @helper.inputDate(obsForm("date"))
+        
+          <button class = "button" form="obsForm"type="submit">Create Observation</button>
+        }
+      </div>
+    </div>
+    <!-- old code -->
+  <!-- end wrapper -->
+  </div>
+</body>

@@ -1,0 +1,200 @@
+body {
+    width: 1000px;
+    margin: 0 auto;
+    text-align: justify;
+    padding: 20px;
+    background-color:slategrey;
+    font-family: Lato;
+}
+
+p {
+    margin: 100px 100px 100px 100px
+}
+
+h5 {
+    margin: 0 0 6 0
+}
+
+.cell {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+
+}
+.title {
+    text-align: center;
+    grid-area: title;
+    background-color: #bcb;
+ }
+
+.subtitle1 {
+    text-align: center;
+    grid-area: subtitle1;
+    background-color: #bcb;
+ }
+.subtitle2 {
+    text-align: center;
+    grid-area: subtitle2;
+    background-color: #bcb;
+}
+
+.filter1 {
+    text-align: center;
+    grid-area: filter1;
+    background-color: #beb;
+}
+
+.filter2 {
+    text-align: center;
+    grid-area: filter2;
+    background-color: #beb;
+}
+
+.filterOptions1 {
+    text-align: center;
+    grid-area: filterOptions1;
+    background-color: #beb;
+}
+
+.filterOptions2 {
+    text-align: center;
+    grid-area: filterOptions2;
+    background-color: #beb;
+}
+
+.filterButton1 {
+    text-align: center;
+    grid-area: filterButton1;
+    background-color: #beb;
+}
+
+.filterButton2 {
+    text-align: center;
+    grid-area: filterButton2;
+    background-color: #beb;
+}
+
+.ok {
+    grid-area: ok;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #bab;
+
+}
+.delete {
+    grid-area: delete;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #bab;
+
+}
+.wrapper {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: minmax(100px, auto);
+    grid-template-areas: "title title title title"
+                         "subtitle1 subtitle1 subtitle2 subtitle2"
+                         "obsList obsList whalesList whalesList"
+                         "obsList obsList whalesList whalesList"
+                         "delete ok whalesList whalesList"
+                         "filter1 filter1 filterOptions1 filterButton1"
+                         "filter2 filter2 filterOptions2 filterButton2";                
+}	
+
+.button {
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white; 
+    color: black; 
+    font-family: Lato;
+    /* border: 2px solid #4CAF50; */
+}
+
+.button:hover {
+    color:white;
+    background-color: #4CAF50;
+}
+
+.fixedHeight {
+    height: 400;
+}
+
+#whaleSelect {
+    -webkit-appearance: menulist-button;
+    height: 30%;
+}
+
+.applyButton {
+    -webkit-appearance: menulist-button;
+    height: 30%;
+}
+
+#obsTable #whaleTable {
+    width: 100%;
+}
+
+#obsTable tbody tr {
+    background-color : #bab;
+
+}
+
+#obsTable tbody tr:hover {
+    background-color : #bcb !important;
+    cursor: pointer;
+}
+
+.obsList {
+    grid-area: obsList;
+    background-color: #bab;
+}
+
+.whalesList {
+    grid-area: whalesList;
+    background-color: #bdb;
+}
+
+.obsList .pane {
+    height:167px;
+}
+
+.whalesList .pane {
+    height:300px;
+}
+
+.pane {
+    display: inline-block;
+    width: 90%;
+    border: 2px black solid;
+    overflow-y: scroll;
+}
+
+table {
+    max-height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+tbody {
+    overflow-y: scroll;
+}

@@ -1,0 +1,112 @@
+@(observationsJson : String, whalesJson: String)
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/landing.css")">
+  <script>
+    var obsData = @Html(observationsJson);
+    var whalesData = @Html(whalesJson);
+  </script>
+  <script type="text/javascript" src="@routes.Assets.versioned("javascripts/landing.js")" > </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>
+    Observation Tracker
+  </title>
+
+</head>
+
+<body>
+
+<div class = "wrapper">
+  <div class = "title cell">
+    <h1>Observation Tracker</h1>
+  </div>
+
+  <div class = "subtitle1 cell">
+    <h2>All Observations</h2>
+  </div>
+
+  <div class = "subtitle2 cell">
+    <h2 id="whaleHeader"> Whales </h2>
+  </div>
+
+  <div class = "obsList cell">
+    <h5>Select an observation to show its whales</h5>
+    <div class = "pane">
+      <table id="obsTable">
+        <thead>
+        <tr>
+          <th>id</th>
+          <th>latitude</th>
+          <th>longitude</th>
+          <th>date</th>
+        </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+
+  <div class = "whalesList cell">
+    <div class = "pane">
+      <table id="whaleTable">
+        <thead>
+        <tr>
+          <th>id</th>
+          <th>species</th>
+          <th>estimated weight</th>
+          <th>gender</th>
+        </tr>
+        </thead>
+      </table>
+
+    </div>
+
+  </div>
+
+  <div class = "filter1 cell">
+    <h2>Show all whales of type:</h2>
+  </div>
+
+  <div class = "filterOptions1 cell">
+    <select name="whaleSelect" id="whaleSelect">
+      <option value="ORCA">ORCA</option>
+      <option value="PORPOISE">PORPOISE</option>
+      <option value="HUMPBACK">HUMPBACK</option>
+      <option value="KILLER">KILLER</option>
+      <option value="BLUE">BLUE</option>
+      <option value="ANY">ANY</option>
+    </select>
+
+  </div>
+
+  <div class = "filterButton1 cell">
+    <button class="applyButton" onclick="updateWhaleTableFromTypeFilter()">Apply filter</button>
+  </div>
+
+  <div class = "filter2 cell">
+    <h2>Show all whales on date:</h2>
+  </div>
+
+  <div class = "filterOptions2 cell">
+    <input type="date" id="date" name="date">
+  </div>
+
+  <div class = "filterButton2 cell">
+    <button class="applyButton" onclick="updateWhaleTableFromDateFilter()">Apply filter</button>
+  </div>
+
+  <div class = "ok cell">
+    <a href = "@routes.ObservationController.createObservation"><button class = "button">Create New Observation</button></a>
+
+  </div>
+
+  <div class = "delete cell">
+    <a href = "@routes.ObservationController.deleteAllObservations"><button class = "button">Delete All Observations</button></a>
+  </div>
+
+</div>
+
+</body>
+
+

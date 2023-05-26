@@ -1,0 +1,195 @@
+body {
+    width: 1000px;
+    margin: 0 auto;
+    text-align: justify;
+    padding: 20px;
+    background-color:slategrey;
+    font-family: Lato;
+}
+
+p {
+    margin: 100px 100px 100px 100px
+}
+
+input {
+    width:140px;
+}
+form { 
+    display: inline-flex;
+    align-items: center;
+}
+table {
+    max-height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+tbody {
+    overflow-y: scroll;
+}
+
+#whaleTable {
+    width: 100%;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: minmax(100px, auto);
+    grid-template-areas: "back title title title"
+                         "whaleCell whaleCell whaleCell whaleCell"
+                         "whaleCell whaleCell whaleCell whaleCell "
+                         "obsCell obsCell obsCell obsCell"
+                         "obsCell obsCell obsCell obsCell"
+}	
+.cell {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.sectionBody {
+    display: inline-flex
+}
+
+.sectionBody button {
+    padding:8px !important;
+    margin: auto;
+}
+
+.title {
+    text-align: center;
+    grid-area: title;
+    background-color: #bcb;
+}
+
+.whaleList {
+    grid-area: whaleList;
+}
+
+#obsCell {
+    display: flex;
+    grid-area: obsCell;
+    background-color: #bdb;
+}
+
+.whaleCell {
+    display: flex;
+    text-align: center;
+    grid-area: whaleCell;
+    background-color: #beb;
+}
+
+.addWhaleCell {
+    text-align: center;
+    grid-area: addWhaleCell;
+    background-color: #beb;
+}
+
+.button {
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white; 
+    color: black; 
+    font-family: Lato;
+}
+
+
+.button:hover {
+    color:white;
+    background-color: #4CAF50;
+}
+
+
+.ok {
+    grid-area: ok;
+}
+
+.back {
+    grid-area: back;
+    background-color: #bcb
+}
+.ok .back{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button:hover {
+    color:white;
+    background-color: #4CAF50;
+}
+
+.fixedHeight {
+    height: 400;
+}
+
+
+
+.whalesList {
+    grid-area: whalesList;
+    /*background-color: #bdb;*/
+}
+
+.pane {
+    display: inline-block;
+    height: 150px;
+    border: 2px black solid;
+    overflow-y: scroll;
+}
+
+.error {
+    color: red;
+}
+
+dd {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%
+}
+dl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 10;
+}
+
+dt{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+} 
+dd {
+    margin-left: 0px;
+}
+
+label {
+    font-weight: bold;
+}
